@@ -14,7 +14,7 @@ export class AppComponent {
   items: Observable<any>;
 
   constructor(public db: AngularFireDatabase) {
-    this.items = db.list('/items/etSOJdcCD6hVDCNHiPh4').valueChanges();
+    this.items = db.list('items').valueChanges();
   }
 
   onSubmit() {
