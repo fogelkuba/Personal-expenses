@@ -15,6 +15,10 @@ export class AppComponent {
 
   constructor(public db: AngularFireDatabase) {
     this.items = db.list('items').valueChanges();
+    // console.log(this.items);
+    this.items.subscribe((items) => {
+      console.log(items);
+    });
   }
 
   onSubmit() {
