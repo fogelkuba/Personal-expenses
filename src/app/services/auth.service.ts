@@ -19,18 +19,18 @@ export class AuthService {
     );
   }
 
-  doGoogleLogin() {
-    return new Promise<any>((resolve, reject) => {
-      let provider = new firebase.auth.GoogleAuthProvider();
-      provider.addScope('profile');
-      provider.addScope('email');
-      this.firebaseAuth.auth
-        .signInWithPopup(provider)
-        .then(res => {
-          resolve(res);
-        });
-    });
-  }
+  // doGoogleLogin() {
+  //   return new Promise<any>((resolve, reject) => {
+  //     let provider = new firebase.auth.GoogleAuthProvider();
+  //     provider.addScope('profile');
+  //     provider.addScope('email');
+  //     this.firebaseAuth.auth
+  //       .signInWithPopup(provider)
+  //       .then(res => {
+  //         resolve(res);
+  //       });
+  //   });
+  // }
 
   isLoggedIn() {
     if (this.user == null) {

@@ -35,7 +35,10 @@ export class AppComponent {
 
   onClickLogout() {
     this.authService.logout();
+  }
 
+  getLoginState() {
+    return this.authService.isLoggedIn();
   }
 
   onClickLogin() {
