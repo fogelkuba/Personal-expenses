@@ -40,5 +40,10 @@ export class AppComponent {
 
   onClickLogin() {
     this.authService.signInWithGoogle();
+    // this.authService.doGoogleLogin();
+      // .then((res) => {
+      //   console.log('success');
+      // })
+      // .catch(err => conssole.log(err));
   }
 }
