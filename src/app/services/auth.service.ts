@@ -33,6 +33,7 @@ export class AuthService {
   // }
 
   isLoggedIn() {
+    // console.log(this.user);
     if (this.user == null) {
       return false;
     } else {
