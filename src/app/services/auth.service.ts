@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-
+import * as firebase from 'firebase/app';
 import {Observable} from 'rxjs/index';
 import {AngularFireAuth} from 'angularfire2/auth';
 
@@ -12,9 +12,6 @@ export class AuthService {
   ) {
     this.user = firebaseAuth.authState;
   }
-  login() {
-
-  }
 
   signInWithGoogle() {
     return this.firebaseAuth.auth.signInWithPopup(
@@ -23,7 +20,7 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    if (this.userDetails == null ) {
+    if (this.userDetails == null) {
       return false;
     } else {
       return true;

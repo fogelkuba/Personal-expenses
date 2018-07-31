@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {Observable} from 'rxjs/Observable';
+import {AuthService} from './services/auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,9 @@ export class AppComponent {
   itemValue = '';
   items: Observable<any>;
 
-  constructor(public db: AngularFireDatabase) {
+  constructor(
+    public db: AngularFireDatabase,
+    private authService: AuthService) {
     this.items = db.list('items').valueChanges();
     // console.log(this.items);
     this.items.subscribe((items) => {
@@ -27,5 +31,14 @@ export class AppComponent {
       content: this.itemValue
     });
     this.itemValue = '';
+  }
+
+  onClickLogout() {
+    this.authService.logout();
+
+  }
+
+  onClickLogin() {
+    this.authService.signInWithGoogle();
   }
 }

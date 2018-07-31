@@ -7,6 +7,7 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
+import {AuthService} from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import {environment} from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // for database
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
