@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div style="color: blue;">
+  <div style="">
     <h1>{{title}}</h1>
     <h3>{{description}}</h3>
   </div>
@@ -7,9 +7,10 @@
   <div style="width: 300px;">
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="item">Item</label> <input type="text"
-                                              class="form-control" placeholder="Enter content..." id="item"
-                                              required [(ngModel)]="itemValue" name="item">
+        <label for="price"></label>
+        <input type="number"
+               class="form-control" placeholder="Enter content..." id="price"
+               required [(ngModel)]="itemValue" name="item">
       </div>
 
       <div class="btn-group">
