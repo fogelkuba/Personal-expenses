@@ -16,6 +16,7 @@ export class AppComponent {
   itemValue = '';
   items: Observable<any>;
   category;
+  users;
 
 
   constructor(
@@ -38,6 +39,10 @@ export class AppComponent {
           name: user.displayName
         };
       });
+  }
+
+  getUsersList() {
+    this.items
   }
 
   onSubmit() {
