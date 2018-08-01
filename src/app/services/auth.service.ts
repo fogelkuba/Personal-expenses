@@ -22,13 +22,14 @@ export class AuthService {
   }
 
   getUser() {
-    let loggedUser;
-    this.firebaseAuth.user.subscribe(user => {
-      if (user) {
-        console.log(user);
-        loggedUser = user;
-      }});
-    return loggedUser;
+    // let loggedUser;
+    // this.firebaseAuth.user.subscribe(user => {
+    //   if (user) {
+    //     console.log(user);
+    //     loggedUser = user;
+    //   }});
+    // return loggedUser;
+    return this.user;
   }
 
   isLoggedIn() {

@@ -24,13 +24,23 @@ export class AppComponent {
     this.items.subscribe((items) => {
       console.log(items);
     });
-    // this.getUser();
+    this.getUser();
+
+  }
+
+  getUser() {
+    this.user = this.authService.getUser().subscribe(
+      user => {
+        this.user = {
+          email: user.email,
+          name: user.displayName
+        };
+      });
   }
 
   onSubmit() {
-    console.log(this.user);
     this.db.list('/items').push({
-      // author: user.displayName,
+      author: this.user,
       content: this.itemValue
     });
     this.itemValue = '';
