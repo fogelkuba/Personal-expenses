@@ -1,14 +1,16 @@
 import {Injectable} from '@angular/core';
 import * as firebase from 'firebase/app';
-import {Observable} from 'rxjs/Observable';
+// import {Observable} from 'rxjs/Observable';
 import {AngularFireAuth} from 'angularfire2/auth';
+import {AngularFireDatabase} from 'angularfire2/database';
 
 @Injectable()
 export class AuthService {
-  private user: Observable<any>;
+  private user;
 
   constructor(
-    private firebaseAuth: AngularFireAuth
+    private firebaseAuth: AngularFireAuth,
+    private db: AngularFireDatabase
   ) {
     this.user = firebaseAuth.authState;
   }
@@ -19,21 +21,17 @@ export class AuthService {
     );
   }
 
-  // doGoogleLogin() {
-  //   return new Promise<any>((resolve, reject) => {
-  //     let provider = new firebase.auth.GoogleAuthProvider();
-  //     provider.addScope('profile');
-  //     provider.addScope('email');
-  //     this.firebaseAuth.auth
-  //       .signInWithPopup(provider)
-  //       .then(res => {
-  //         resolve(res);
-  //       });
-  //   });
-  // }
+  getUser() {
+    let loggedUser;
+    this.firebaseAuth.user.subscribe(user => {
+      if (user) {
+        console.log(user);
+        loggedUser = user;
+      }});
+    return loggedUser;
+  }
 
   isLoggedIn() {
-    // console.log(this.user);
     if (this.user == null) {
       return false;
     } else {
