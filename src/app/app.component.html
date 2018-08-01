@@ -7,25 +7,29 @@
 </nav>
 <div class="container-fluid">
 
-  <!--{{getLoginState()}}-->
-  <div style="">
-    <h1>{{title}}</h1>
-    <h3>{{description}}</h3>
-  </div>
+  <!--&lt;!&ndash;{{getLoginState()}}&ndash;&gt;-->
+  <!--<div style="">-->
+    <!--<h1>{{title}}</h1>-->
+  <!--</div>-->
 
-  <div style="width: 300px;">
+  <div>
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="price">Price:</label>
-        <input type="number"
-               class="form-control" placeholder="Enter content..." id="price"
-               required [(ngModel)]="itemValue" name="item"
-        >zł
-        <!--<input type="category"-->
-               <!--class="form-control" placeholder="Select category..." id="category"-->
-               <!--required [(ngModel)]="itemValue" name="item"-->
-        <!--&gt;-->
-      </div>
+   <div class="col-md-6 col">
+     <label for="price">Price:</label>
+     <input type="number"
+            class="form-control" placeholder="Enter content..." id="price"
+            required [(ngModel)]="itemValue" name="item"
+     >zł
+
+     <select class="form-control" id="category">
+       <option>Grocery</option>
+       <option>Cinema</option>
+       <option>Restaurant</option>
+       <option>Home</option>
+     </select>
+   </div>
+   </div>
 
       <div class="btn-group">
         <button type="submit" class="btn btn-success">Submit</button>

@@ -15,6 +15,8 @@ export class AppComponent {
   user: object;
   itemValue = '';
   items: Observable<any>;
+  category;
+
 
   constructor(
     public db: AngularFireDatabase,
