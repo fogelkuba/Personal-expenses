@@ -37,7 +37,7 @@
     </form>
   </div>
 
-  <h2>Content from Firebase</h2>
+  <h2>Expeneses</h2>
   <div>
     <table class="table table-striped table-hover">
       <thead>
@@ -47,7 +47,7 @@
       </tr>
       </thead>
       <tr *ngFor="let item of items | async">
-        <td>{{item.content}}</td>
+        <td>{{item.content}} zł</td>
         <td>{{item.author}}</td>
       </tr>
     </table>
