@@ -42,7 +42,7 @@ export class AppComponent {
   }
 
   getUsersList() {
-    this.items
+    // this.items
   }
 
   onSubmit() {
