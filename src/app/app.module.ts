@@ -9,6 +9,7 @@ import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
 import {AuthService} from './services/auth.service';
 import {AngularFireAuthModule} from 'angularfire2/auth';
+// import {MatButtonModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // for database
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    // MatButtonModule,
+
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
