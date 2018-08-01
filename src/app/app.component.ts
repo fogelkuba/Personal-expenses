@@ -40,7 +40,7 @@ export class AppComponent {
 
   onSubmit() {
     this.db.list('/items').push({
-      author: this.user,
+      author: this.user['name'],
       content: this.itemValue
     });
     this.itemValue = '';
