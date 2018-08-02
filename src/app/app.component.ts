@@ -1,8 +1,17 @@
-import {Component} from '@angular/core';
+import {Component, NgModule} from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {Observable} from 'rxjs/Observable';
 import {AuthService} from './services/auth.service';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
+
+// import {FormControl, Validators} from '@angular/forms';
+
+@NgModule({
+    imports: [MatButtonModule, MatCheckboxModule],
+})
 
 @Component({
   selector: 'app-root',
@@ -15,7 +24,12 @@ export class AppComponent {
   user: object;
   itemValue = '';
   items: Observable<any>;
-  category;
+  categories = [
+    {name: 'Grocery'},
+    {name: 'Cinema'},
+    {name: 'Restaurant'},
+    {name: 'For Home'},
+  ];
   users;
 
 
@@ -46,11 +60,13 @@ export class AppComponent {
   }
 
   onSubmit() {
-    this.db.list('/items').push({
-      author: this.user['name'],
-      content: this.itemValue
-    });
-    this.itemValue = '';
+    if (this.itemValue) {
+      this.db.list('/items').push({
+        author: this.user['name'],
+        content: this.itemValue
+      });
+      this.itemValue = '';
+    }
   }
 
   onClickLogout() {

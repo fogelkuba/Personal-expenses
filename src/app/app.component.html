@@ -2,8 +2,8 @@
   <span class="navbar-text">
     Expenses
   </span>
-  <button  class="btn btn-outline-white" (click)="onClickLogin()">sign in google</button>
-  <button class="btn btn-default" (click)="onClickLogout()">Logout</button>
+  <button mat-button (click)="onClickLogin()">sign in google</button>
+  <button mat-button (click)="onClickLogout()">Logout</button>
 </nav>
 <div class="container-fluid">
 
@@ -23,16 +23,27 @@
           >
         </div>
 
-        <select class="form-control" id="category">
-          <option>Grocery</option>
-          <option>Cinema</option>
-          <option>Restaurant</option>
-          <option>Home</option>
-        </select>
+        <!--<mat-form-field>-->
+          <!--<mat-select placeholder="Favorite animal" required>-->
+            <!--<mat-option>&#45;&#45;</mat-option>-->
+            <!--<mat-option *ngFor="let category of categories" [value]="category">-->
+              <!--{{category.name}}-->
+            <!--</mat-option>-->
+          <!--</mat-select>-->
+          <!--&lt;!&ndash;<mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error>&ndash;&gt;-->
+          <!--&lt;!&ndash;<mat-hint>{{animalControl.value?.sound}}</mat-hint>&ndash;&gt;-->
+        <!--</mat-form-field>-->
+
+        <!--<select class="form-control" id="category">-->
+          <!--<option>Grocery</option>-->
+          <!--<option>Cinema</option>-->
+          <!--<option>Restaurant</option>-->
+          <!--<option>For Home</option>-->
+        <!--</select>-->
       </div>
 
       <div class="btn-group">
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button mat-button type="submit">Submit</button>
       </div>
     </form>
   </div>
